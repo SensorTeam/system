@@ -11,11 +11,15 @@ Runs everything.
 ## Setup
 
 1. Clone this repo
-2. Clone the following repos within this repo:
+2. Clone and the following repos within this repo and rename accordingly:
 	* `scanner`
 	* `finder`
 	* `classifier`
-3. Run `setup.sh`
+3. Setup `virtualenv venv`
+4. Activate 
+	* UNIX-based systems: `. ./venv/bin/activate`
+	* Windows: `. .\venv\Scripts\activate`
+5. Run `sh install.sh`
 
 ### Usage
 
