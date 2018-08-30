@@ -18,15 +18,18 @@ def main():
 			if scanner.has_new_image():
 				print('NEW IMAGE DETECTED')
 
+				# Download the image from the camera and return the path of the file minus the extension (e.g. images/IMG_0001)
 				path = scanner.download_image()
 				print('NEW IMAGE TRANSFERRED')
 
+				# Extract the necessary data
 				data = finder.extract_data_from(path)
 				print('DATA EXTRACTED')
 
+				# Classify the data
 				result = classifier.classify(data)
-				print('CLASSIFYING...')
-				
+				print('CLASSIFIED')
+
 				save(result)
 		else:
 			print('CAMERA NOT CONNECTED...')
