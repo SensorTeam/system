@@ -21,7 +21,7 @@ def main():
 			if scanner.has_new_image():
 				print('NEW IMAGE DATECTED')
 
-				image = scanner.download_image()
+				image = scanner.download_latest_image()
 				print('NEW IMAGE TRANSFERRED')
 
 				data = finder.extract_data_from(image)
