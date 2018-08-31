@@ -6,7 +6,7 @@ PATH_RESULTS = 'output/results.txt'
 # CONFIG for train.py
 # ------------------------------
 
-PATH_TRAINING_DATA = 'input/csv/results_jpg.csv'
+PATH_TRAINING_DATA = 'input/csv/results_raw.csv'
 PATH_TRAINING_IMAGES = 'input/training'
 
 # CONFIG for scanner
@@ -22,9 +22,9 @@ PATH_DOWNLOADS = 'input/images'
 # CONFIG for classifier
 # ------------------------------
 
-BIT = 8 					# 8 or 14 (jpg or raw)
+BIT = 14 					# 8 or 14 (jpg or raw)
 
-COLORSPACE = "RGB" 			# RGB or HSV
+COLORSPACE = "HSV" 			# RGB or HSV
 N_CLASSES = 5 				# number of classes
 
 # RGB COLORSPACE
