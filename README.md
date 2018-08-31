@@ -19,7 +19,24 @@ Runs everything.
 4. Activate 
 	* UNIX-based systems: `. ./venv/bin/activate`
 	* Windows: `. .\venv\Scripts\activate`
-5. Run `sh install.sh`
+5. Run `sh setup.sh`
+
+At the end of the setup, you should have the following directory structure:
+
+```
+classifier/
+finder/
+input/
+output/
+scanner/
+venv/
+.gitignore
+classify.py
+config.py
+README.md
+setup.sh
+train.py
+```
 
 ### Usage
 
