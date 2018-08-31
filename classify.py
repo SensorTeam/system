@@ -13,29 +13,32 @@ def save(result):
 		output.write(result)
 
 def main():
-	# Classify new photos
-	while True:
-		if scanner.is_connected():
-			print('CAMERA CONNECTED')
+	# Downloads, extracts data from and classifies images
+	count = 0
 
-			if scanner.has_new_image():
-				print('NEW IMAGE DATECTED')
+	try:
+		while scanner.is_connected():
+			new_count = len(scanner.get_image_list())
+			if new_count > count:
+				count = new_count
+				print('📸 NEW IMAGE DETECTED')
 
-				image = scanner.download_image()
-				print('NEW IMAGE TRANSFERRED')
+				latest_image = scanner.download_latest_image()
+				print('⬇️ NEW IMAGE TRANSFERRED')
 
-				data = finder.extract_data_from(image)
-				print('DATA EXTRACTED')
+				data = finder.extract_data_from(latest_image)
+				print('👀 DATA EXTRACTED')
 
 				result = classifier.classify(data)
-				print('CLASSIFICATION COMPLETE')
+				print('✅ CLASSIFICATION COMPLETE')
 
 				save(result)
-		else:
-			print('CAMERA NOT CONNECTED')
+	except:
+		print('CAMERA DISCONNECTED')
 
 # Start the show...
 # ------------------------------
 
 if __name__ == '__main__':
 	main()
+
