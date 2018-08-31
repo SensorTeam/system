@@ -6,6 +6,10 @@ venv/
 *.pyc
 __pycache__/
 
+scanner-mk*/
+finder-mk*/
+classifier-mk*/
+
 scanner/
 finder/
 classifier/
