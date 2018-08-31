@@ -33,7 +33,7 @@ def save(training_data, path):
 		for data in training_data:
 			training_data_file.write(data)
 
-def main():
+def load_images():
 	# Trains the system
 	images = get_training_images_from(config.PATH_TRAINING_IMAGES)
 	print('IMAGES LOADED')
@@ -42,7 +42,8 @@ def main():
 	save(training_data, config.PATH_TRAINING_DATA)
 	print('DATA SAVED')
 
-	classifier.train()
+def main():
+	classifier.train(config.PATH_TRAINING_DATA)
 	print('TRAINING COMPLETE')
 
 # Start the show...
