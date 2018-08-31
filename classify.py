@@ -29,10 +29,13 @@ def main():
 				data = finder.extract_data_from(latest_image)
 				print('👀 DATA EXTRACTED')
 
-				result = classifier.classify(data)
-				print('✅ CLASSIFICATION COMPLETE')
+				if len(data) > 0:
+					result = classifier.classify(data)
+					print('✅ CLASSIFICATION COMPLETE')
+					save(result)
+				else:
+					print('❌ NO EYES FOUND')
 
-				save(result)
 	except:
 		print('CAMERA DISCONNECTED')
 
