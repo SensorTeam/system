@@ -16,13 +16,16 @@ def main():
 	# Downloads, extracts data from and classifies images
 	count = 0
 
+	if scanner.is_connected():
+		count = len(scanner.get_image_list())
+
 	while scanner.is_connected():
 		new_count = len(scanner.get_image_list())
-		if new_count > count:
-			count = new_count
+		while new_count > count:
+			count = count + 2
 			print('📸 NEW IMAGE DETECTED')
 
-			latest_image = scanner.download_latest_image()
+			latest_image = scanner.download_image(count)
 			print('⬇️ NEW IMAGE TRANSFERRED')
 
 			data = finder.extract_data_from(latest_image, 0)
