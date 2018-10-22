@@ -25,7 +25,8 @@ def main():
 			count = count + 1
 			print('📸 NEW IMAGE DETECTED')
 
-			latest_image = scanner.download_one_image(count)
+			# latest_image = scanner.download_one_image(count)
+			latest_image = scanner.download_latest_jpg(count)
 			print('⬇️ NEW IMAGE TRANSFERRED')
 
 			data = finder.extract_data_from(latest_image, None)
