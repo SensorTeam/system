@@ -22,10 +22,10 @@ def main():
 	while scanner.is_connected():
 		new_count = len(scanner.get_image_list())
 		while new_count > count:
-			count = count + 2
+			count = count + 1
 			print('📸 NEW IMAGE DETECTED')
 
-			latest_image = scanner.download_image(count)
+			latest_image = scanner.download_latest_jpg(count)
 			print('⬇️ NEW IMAGE TRANSFERRED')
 
 			data = finder.extract_data_from(latest_image, 0)
