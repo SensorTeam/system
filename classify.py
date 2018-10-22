@@ -22,21 +22,21 @@ def main():
 	while scanner.is_connected():
 		new_count = len(scanner.get_image_list())
 		while new_count > count:
-			count = count + 2
+			count = count + 1
 			print('📸 NEW IMAGE DETECTED')
 
-			latest_image = scanner.download_image(count)
+			latest_image = scanner.download_one_image(count)
 			print('⬇️ NEW IMAGE TRANSFERRED')
 
-			data = finder.extract_data_from(latest_image, 0)
+			data = finder.extract_data_from(latest_image, None)
 			print('👀 DATA EXTRACTED')
 
 			if len(data) > 0:
 				print('FINDER OUTPUT', data)
-
-				result = classifier.classify(data[0])
-				print('✅ CLASSIFICATION COMPLETE')
-				save(result)
+				for entry in data:
+					result = str(classifier.classify(entry))
+					print('✅ CLASSIFICATION COMPLETE')
+					save(result)
 			else:
 				print('❌ NO EYES FOUND')
 
